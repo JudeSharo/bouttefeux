@@ -1,31 +1,37 @@
 <!DOCTYPE html lang="fr">
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Yohan Bouttefeux{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Yohan Bouttefeux{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
-        <link rel="stylesheet" href="{{asset('css/base.css')}}" type="text/css"/>
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+    <link rel="stylesheet" href="{{asset('css/base.css')}}" type="text/css"/>
+    {% block stylesheets %}
+        {#{{ encore_entry_link_tags('app') }}#}
+    {% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        <ul>
-            <li><a href="default.asp">Home</a></li>
-            <li><a href="news.asp">News</a></li>
-            <li><a href="contact.asp">Contact</a></li>
-            <li><a href="about.asp">About</a></li>
-            <li><a href="{{path('app_login')}}">Login !</a></li>
-        </ul>
-        <br>
-
-        {% block body %}{% endblock %}
-        <!-- footer -->
-    </body>
+    {% block javascripts %}
+        {#{{ encore_entry_script_tags('app') }}#}
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar">
+    <a href="{{ path('index') }}" class="navbar-brand"><span>A</span>ccueil</a>
+    <ul>
+        <li>{% if is_granted('ROLE_USER') %}
+                <a href="{{ path('app_profil') }}">Profil</a>
+            {% else %}
+                <a href="{{ path('app_login') }}">Se Connecter</a>
+            {% endif %}</li>
+        <li><a href="{{ path('app_register') }}">S'Inscrire</a></li>
+    </ul>
+    <button class="navbar-toggler" id="navbar-toggler">
+        <span></span>
+    </button>
+</nav>
+{% block body %}{% endblock %}
+<!-- footer -->
+<script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>
+</body>
 </html>
