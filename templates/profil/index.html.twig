@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfilController!{% endblock %}
+{% block title %}Profil{% endblock %}
 
 {% block body %}
 
@@ -9,7 +9,7 @@
 	{% if is_granted('ROLE_USER') %}
 		<h1>Bonjour {{app.user.pseudo}} {{app.user.nom}} !</h1>
 		<p>Vous habitez au {{app.user.adresse}}</p>
-		<p>Votre numéro de téléphone est le {{app.user.phone_number}}</p>
+		<p>Votre numéro de téléphone est le {{app.user.getphoneNumber}}</p>
 
 	{% endif %}
 
