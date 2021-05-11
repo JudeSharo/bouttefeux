@@ -4,6 +4,17 @@
 
 {% block body %}
 
-COucou c'est le profil
+	<p>Coucou c'est le profil</p>
+
+	{% if is_granted('ROLE_USER') %}
+		<h1>Bonjour {{app.user.pseudo}} {{app.user.nom}} !</h1>
+		<p>Vous habitez au {{app.user.adresse}}</p>
+		<p>Votre numéro de téléphone est le {{app.user.phone_number}}</p>
+
+	{% endif %}
+
+
+	<a href="{{path('app_logout')}}">Deconnexion</a>
+
 
 {% endblock %}
