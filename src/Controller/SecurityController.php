@@ -2,14 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
-use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-
 
 class SecurityController extends AbstractController
 {
@@ -36,34 +32,17 @@ class SecurityController extends AbstractController
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
-    #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user): Response
+    #[Route('/edit_user',name:'app_edit_user')]
+    public function edit_user()
     {
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('index');
-        }
-
-        return $this->render('security/edit.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
-        ]);
+        return $this->render('security/edit.html.twig');
     }
 
-
-    #[Route('/{id}/destruct_user',name:'app_user_destruct',methods:['GET','POST'])]
-    public function destruct(Request $request, User $user)
+    #[Route('/destruct_user',name:'app_destruct_user')]
+    public function supp_user()
     {
-         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($event);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('index');
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        echo("Destruction de votre compte");
+        return $this->render('profil/index.html.twig');
     }
 }
