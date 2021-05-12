@@ -11,6 +11,9 @@
 		<p>Vous habitez au {{app.user.adresse}}</p>
 		<p>Votre numéro de téléphone est le {{app.user.getphoneNumber}}</p>
 
+		<a href="{{path('app_user_edit',{'id':app.user.id})}}">modifier votre profil</a>
+
+
 	{% endif %}
 
 

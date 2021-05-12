@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\UserType;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -32,17 +36,33 @@ class SecurityController extends AbstractController
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
-    #[Route('/edit_user',name:'app_edit_user')]
-    public function edit_user()
+    #[Route('/{id}/edit',name:'app_user_edit',methods:['GET', 'POST'])]
+    public function edit(Request $request, User $user)
     {
-        return $this->render('security/edit.html.twig');
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('index');
+        }
+
+        return $this->render('profil/edit.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
     }
 
-    #[Route('/destruct_user',name:'app_destruct_user')]
-    public function supp_user()
+    #[Route('/{id}/delete',name:'app_user_delete',methods:['POST'])]
+    public function delete(Request $request, User $user)
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
-        echo("Destruction de votre compte");
-        return $this->render('profil/index.html.twig');
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('index');
     }
 }
