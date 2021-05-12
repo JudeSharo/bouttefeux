@@ -2,4 +2,13 @@
 
 {% block title %}Edit de {{ app.user.pseudo }} {% endblock %}
 
-{% block body %} Du texte {% endblock %}
+{% block body %}
+
+	{{ form_start(form) }}
+    	{{ form_widget(form) }}
+    		
+    		<button class="btn">{{ button_label|default('Save') }}</button>
+	{{ form_end(form) }}
+	
+	<a href="{{path('app_profil')}}">Annuler</a>
+{% endblock %}
