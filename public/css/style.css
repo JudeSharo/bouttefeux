@@ -1,21 +1,26 @@
 * {
-    padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 body {
     font-family: Helvetica, Arial, sans-serif;
-    background-color: #fff;
     color: #333;
 }
+.backgroung{
+    max-width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 .navbar {
-    background-color: #FFA500;
+    background-color: transparent;
     color: #fff;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
     width: 100%;
     height: 80px;
     line-height: 80px;
     font-size: 18px;
+    position: fixed;
     padding: 0;
     top: 0;
     left: 0;
@@ -36,8 +41,8 @@ body {
     letter-spacing: 2px;
 }
 .navbar a.navbar-brand span {
+    color: #FFA500;
     font-size: 28px;
-    font-weight: 700;
 }
 .navbar ul {
     float: right;
@@ -45,6 +50,9 @@ body {
     height: inherit;
     line-height: inherit;
     padding: 0 10px;
+}
+.navbar ul.nav{
+    top: 0;
 }
 .navbar ul li {
     display: inline-block;
@@ -58,9 +66,92 @@ body {
 .navbar ul li a:hover {
     background-color: rgba(255,255,255,0.15);
 }
+.navbar ul li a.active {
+    background-color: #FFA500;
+}
 .navbar .navbar-toggler {
     display: none;
 }
+.column{
+    float: left;
+    width: 33.33%;
+}
+.row{
+    color: #AAAAAA;
+}
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.belowNavbar{
+    position: relative;
+    top: 500px;
+}
+.degrade1{
+    backdrop-filter: blur(2px);
+    flex-shrink: 0;
+}
+.degrade2{
+    backdrop-filter: blur(4px);
+    flex-shrink: 0;
+}
+.degrade3{
+    backdrop-filter: blur(6px);
+    flex-shrink: 0;
+}
+footer {
+    flex-shrink: 0;
+    width: 100%;
+    backdrop-filter: blur(8px);
+    box-shadow: rgba(0,0,0,.7);
+    color: #AAA;
+}
+.contenu-footer {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 20px;
+    padding: 50px 0 100px;
+}
+.bloc {
+    width: 25%;
+    margin: 0 30px;
+}
+.footer-contact h3,
+.footer-services h3,
+.footer-horaires h3,
+.footer-medias h3 {
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+.footer-contact p {
+    padding: 5px 0;
+}
+.liste-services,
+.liste-horaires,
+.liste-media {
+    list-style-type: none;
+}
+.liste-services li {
+    padding: 2px 0;
+}
+.liste-services a {
+    text-decoration: none;
+    color: #AAA;
+}
+.liste-services a:hover {
+    color: #FFA500;
+}
+
+
+
+
+
+
 
 @media (max-width: 991px) {
     .navbar ul {
@@ -72,7 +163,15 @@ body {
     }
 }
 
+
+
+
+
+
 @media (max-width: 767px) {
+    .column{
+        width: 100%;
+    }
     .navbar {
         padding: 0;
     }
@@ -142,3 +241,5 @@ body {
         /* transform: translateY(-3px) scale(0.75) rotate(-45deg); */
     }
 }
+
+

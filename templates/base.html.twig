@@ -4,34 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Yohan Bouttefeux{% endblock %}</title>
-    {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-    <link rel="stylesheet" href="{{asset('css/base.css')}}" type="text/css"/>
+
     {% block stylesheets %}
-        {#{{ encore_entry_link_tags('app') }}#}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
     {% endblock %}
 
-    {% block javascripts %}
-        {#{{ encore_entry_script_tags('app') }}#}
-    {% endblock %}
 </head>
 <body>
+{% block background %}{% endblock %}
 <nav class="navbar">
     <a href="{{ path('index') }}" class="navbar-brand"><span>A</span>ccueil</a>
     <ul>
-        <li>{% if is_granted('ROLE_USER') %}
-                <a href="{{ path('app_profil') }}">Profil</a>
-            {% else %}
-                <a href="{{ path('app_login') }}">Se Connecter</a>
-            {% endif %}</li>
-        <li><a href="{{ path('app_register') }}">S'Inscrire</a></li>
+        {% if is_granted('ROLE_USER') %}
+            <li class="nav"><a href="{{ path('app_profil') }}">Profil</a></li>
+        {% else %}
+            <li class="nav"><a href="{{ path('app_login') }}">Se Connecter</a></li>
+            <li class="nav"><a href="{{ path('app_register') }}" class="active">S'Inscrire</a></li>
+        {% endif %}
     </ul>
     <button class="navbar-toggler" id="navbar-toggler">
         <span></span>
     </button>
 </nav>
-{% block body %}{% endblock %}
+{% block body %}
+
+{% endblock %}
 <!-- footer -->
 <script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>
+
+    {% block javascripts %}
+        {#{{ encore_entry_script_tags('app') }}#}
+    {% endblock %}
+<div class="degrade1"></div><br>
+<div class="degrade2"></div><br>
+<div class="degrade3"></div><br>
+<footer >
+
+    <div class="contenu-footer">
+
+        <div class="bloc footer-services">
+            <h3>Nos Services</h3>
+            <ul class="liste-services">
+                <li><a href="#">Herbegement</a></li>
+                <li><a href="#">Nom de domaines</a></li>
+                <li><a href="#">E-commerce</a></li>
+                <li><a href="#">Machine Learning</a></li>
+                <li><a href="#">Finances</a></li>
+                <li><a href="#">Start-up</a></li>
+            </ul>
+        </div>
+
+        <div class="bloc footer-contact">
+            <h3>Restons en contact</h3>
+            <p>55-55-55-55-55</p>
+            <p>supportclient@contact.com</p>
+            <p>6 rue de l'invention, Parie VII, 75007</p>
+        </div>
+
+        <div class="bloc footer-horaires">
+            <h3>Les horaires</h3>
+            <ul class="liste-horaires">
+                <li>✔️ Lun 10h-19h</li>
+                <li>✔️ Mar 10h-19h</li>
+                <li>✔️ Mer 10h-19h</li>
+                <li>✔️ Jeu 10h-19h</li>
+                <li>✔️ Ven 10h-19h</li>
+                <li>❌ Sam fermé</li>
+                <li>❌ Dim fermé</li>
+            </ul>
+        </div>
+
+        <div class="bloc footer-medias">
+            <h3>Nos réseaux</h3>
+            <ul class="liste-media">
+                <li><a href="#">
+                        <!-- <img src="medias/fb.svg" alt="icones réseaux sociaux"> -->
+                        Facebook/monsite</a></li>
+                <li><a href="#">
+                        <!--  <img src="medias/instagram.svg" alt="icones réseaux sociaux">-->
+                        Instagram/stuff</a></li>
+                <li><a href="#">
+                        <!--  <img src="medias/twitter.svg" alt="icones réseaux sociaux">-->
+                        Twitter/lorem</a></li>
+                <li><a href="#">
+                        <!--   <img src="medias/github.svg" alt="icones réseaux sociaux">-->
+                        Github/HelloWorld</a></li>
+                <li><a href="#">
+                        <!--   <img src="medias/youtube.svg" alt="icones réseaux sociaux">-->
+                        Youtube/channel</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</footer>
 </body>
 </html>
