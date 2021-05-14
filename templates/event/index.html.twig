@@ -8,28 +8,28 @@
 
 {% block body %}
 	<div class="belowNavbar">
-		<table class="table">
+		<table class="tableauEvent">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>DateEvent</th>
-                <th>Image</th>
-                <th>actions</th>
+                <th class="colonneTableauEvent">Id</th>
+                <th class="colonneTableauEvent">Title</th>
+                <th class="colonneTableauEvent">Description</th>
+                <th class="colonneTableauEvent">DateEvent</th>
+                <th class="colonneTableauEvent">Image</th>
+                <th class="colonneTableauEvent">actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="">
         {% for event in events%}
-            <tr>
-                <td>{{ event.id }}</td>
-                <td>{{ event.title }}</td>
-                <td>{{ event.description }}</td>
-                <td>{{ event.datetime ? event.datetime|date('Y-m-d H:i:s') : '' }}</td>
-                <td>    
+            <tr class="">
+                <td class="colonneTableauEvent">{{ event.id }}</td>
+                <td class="colonneTableauEvent">{{ event.title }}</td>
+                <td class="colonneTableauEvent">{{ event.description }}</td>
+                <td class="colonneTableauEvent">{{ event.datetime ? event.datetime|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="colonneTableauEvent">
     				{% for image in event.image%}
     					<div>
-    						<img src="{{asset('/images/uploads/'~image.src)}}" width="25%">
+    						<img src="{{asset('/images/uploads/'~image.src)}}" height="150px">
     					</div>
     				{% endfor %}
     			</td>
