@@ -107,13 +107,13 @@ class EventController extends AbstractController
 
         if($this -> isCsrfTokenValid('delete'.$image->getId(),$data['_token']))
         {
-            $nom = $image ->getName();
+            $nom = $image ->getSrc();
 
             unlink($this ->getParameter('image_directory').'/'.$nom);
 
             $em = $this->getDoctrine()->getManager();
             $em->remove($image);
-            $em->flush;
+            $em->flush();
 
             return new JsonResponse(['sucess'=>1]);
 
