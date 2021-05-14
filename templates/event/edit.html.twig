@@ -1,14 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} changement de {{ app.event.id}}{% endblock %}
+{% block title %} changement de {{ event.id}}{% endblock %}
 
 
 {% block body %}
-<div class="belowNavbar">
-    <h1>Changement de {{app.event.title}}</h1>
-     {{ include('event/_form.html.twig', {'button_label': 'changement'})}}
+	<div class="belowNavbar">
+    	<h1>Changement de {{event.title}}</h1>
+     	{{ include('event/_form.html.twig', {'button_label': 'changement'})}}
 
-    <a href="{{ path('app_event_index')}}">back to list</a>
-</div>
+    	<a href="{{ path('app_event_index')}}">back to list</a>
+	</div>
 
+{% endblock %}
+
+
+{% block javascripts %}
+	<script type="text/javascript" src="{{asset('js/images.js')}}"></script>
 {% endblock %}

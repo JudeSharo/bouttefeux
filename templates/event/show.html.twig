@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ event.title}}{% endblock %}
+
+{% block body %} 
+
+	{{ event.title }}
+	{% for image in event.image %}
+        <div class="slidegrid2">
+            <img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px">
+        </div>
+   {% endfor %}
+   {{ event.description }}
+   {{ event.datetime? event.datetime|date('Y-m-d H:i:s') : '' }}
+
+   <a href="{{path('app_event_edit',{'id':event.id})}}">Editer l'evenement</a>
+
+
+
+{% endblock %}

@@ -94,4 +94,34 @@ class EventController extends AbstractController
         ]);
     }
 
+    #[Route('/event/{id}/show',name:'app_event_show')]
+    public function show(Event $event)
+    {
+        return $this->render('event/show.html.twig',['event' => $event,]);
+    }
+
+    #[Route('/event/image/{id}/delete',name:'app_event_image_delete',methods:['DELETE'])]
+    public function deleteImage(Image $image, Request $request)
+    {
+        $data = json_decode($request->getContent(),true);
+
+        if($this -> isCsrfTokenValid('delete'.$image->getId(),$data['_token']))
+        {
+            $nom = $image ->getName();
+
+            unlink($this ->getParameter('images_directory').'/'.$nom);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($image);
+            $em->flush;
+
+            return new JsonResponse(['sucess'=>1]);
+
+        }
+        else
+        {
+            return new JsonResponse(['error'=>'Token invalide'],400);
+        }
+    }
+
 }

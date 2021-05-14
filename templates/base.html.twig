@@ -16,7 +16,10 @@
         }
     </style>
 </head>
-<body>
+<body>  
+{% block javascripts %}
+        {#{{ encore_entry_script_tags('app') }}#}
+{% endblock %}
 {% block background %}{% endblock %}
 <nav class="navbar">
     <a href="{{ path('index') }}" class="navbar-brand"><span>A</span>ccueil</a>
@@ -38,9 +41,7 @@
 <!-- footer -->
 <script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>
 
-    {% block javascripts %}
-        {#{{ encore_entry_script_tags('app') }}#}
-    {% endblock %}
+
 <footer >
 
     <div class="contenu-footer">

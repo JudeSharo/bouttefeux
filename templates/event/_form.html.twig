@@ -3,11 +3,10 @@
 
     {% if app.request.attributes.get('_route') == 'app_event_edit' %}
     	<h2>Images</h2>
-    	{% for image in event.images %}
+    	{% for image in event.image%}
     		<div>
-    			<img src="{{asset('/images/upload/'~image.src)}}">
-
-    			{#Ajouter le lien pour la supp d'image#}
+    			<img src="{{asset('images/uploads/'~image.src)}}">
+				<a href="{{ path('app_event_image_delete', {id: image.id})}}" data-delete data-token="{{ csrf_token('delete' ~ image.id )}}">Supprimer</a>
     		</div>
     	{% endfor %}
     {% endif %}
