@@ -8,7 +8,13 @@
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
     {% endblock %}
-
+    <style>
+        img .logofb:hover{
+            {% set srclogofb %}
+                {{ asset('images/fb2.png') }}
+            {% endset %}
+        }
+    </style>
 </head>
 <body>
 {% block background %}{% endblock %}
@@ -71,9 +77,15 @@
         <div class="bloc footer-medias">
             <h3>Nos réseaux</h3>
             <ul class="liste-media">
-                <li><a href="https://www.facebook.com/Bouttefeux-yohan-321817244628825/">
-                    <img src="{{ asset('images/fb.png') }}" alt="icones réseaux sociaux">Facebook/bouttefeux
-                </a></li>
+                <li>
+                    {% set srclogofb %}
+                        {{ asset('images/fb.png') }}
+                    {% endset %}
+
+                    <a href="https://www.facebook.com/Bouttefeux-yohan-321817244628825/" >
+                        <img class="logofb" src="{{ srclogofb }}" alt="Icone Facebook">Facebook/bouttefeux
+                    </a>
+                </li>
                 <!--<li><a href="#">-->
                         <!--  <img src="medias/instagram.svg" alt="icones réseaux sociaux">-->
                 <!--  Instagram/stuff</a></li>-->

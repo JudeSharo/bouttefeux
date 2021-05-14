@@ -1,20 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil{% endblock %}
+
+{% block background %}<div class="background" style="background-image:url('{{ asset('images/page-accueil.jpg') }}')">{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="belowNavbar">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/judes/OneDrive/Documents/JsSymph/bouttefeux/bouttefeux/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/judes/OneDrive/Documents/JsSymph/bouttefeux/bouttefeux/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+    <main>
+        <div class="slider">
+            <!-- Conteneur des "diapos" -->
+            <div class="slides">
+                <!-- Première diapo -->
+                <div class="slide">
+                    <img src="{{ asset('images/slider1.jpeg') }}" alt="Image 1">
+                    <div class="caption">
+                        <h2>Image 1</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+                    </div>
+                </div>
+                <!-- Deuxième diapo -->
+                <div class="slide">
+                    <img src="{{ asset('images/slider2.jpeg') }}" alt="Image 2">
+                    <div class="caption">
+                        <h2>Image 2</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+                    </div>
+                </div>
+                <!-- Troisième diapo -->
+                <div class="slide">
+                    <img src="{{ asset('images/slider3.jpeg') }}" alt="Image 3">
+                    <div class="caption">
+                        <h2>Image 3</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Flèches de navigation -->
+            <i id="nav-gauche" class="las la-chevron-left"></i>
+            <i id="nav-droite" class="las la-chevron-right"></i>
+        </div>
+    </main>
+
 </div>
+
+<script src="{{ asset('js/slider.js') }}"
+
 {% endblock %}
