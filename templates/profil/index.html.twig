@@ -3,21 +3,21 @@
 {% block title %}Profil{% endblock %}
 
 {% block body %}
+	<div class="belowNavbar">
+		<p>Coucou c'est le profil</p>
 
-	<p>Coucou c'est le profil</p>
+		{% if is_granted('ROLE_USER') %}
+			<h1>Bonjour {{app.user.pseudo}} {{app.user.nom}} !</h1>
+			<p>Vous habitez au {{app.user.adresse}}</p>
+			<p>Votre numéro de téléphone est le {{app.user.getphoneNumber}}</p>
 
-	{% if is_granted('ROLE_USER') %}
-		<h1>Bonjour {{app.user.pseudo}} {{app.user.nom}} !</h1>
-		<p>Vous habitez au {{app.user.adresse}}</p>
-		<p>Votre numéro de téléphone est le {{app.user.getphoneNumber}}</p>
-
-		<a href="{{path('app_user_edit',{'id':app.user.id})}}">modifier votre profil</a>
-
-
-	{% endif %}
+			<a href="{{path('app_user_edit',{'id':app.user.id})}}">modifier votre profil</a>
 
 
-	<a href="{{path('app_logout')}}">Deconnexion</a>
+		{% endif %}
 
+
+		<a href="{{path('app_logout')}}">Deconnexion</a>
+	</div>
 
 {% endblock %}

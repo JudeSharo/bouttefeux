@@ -1,22 +1,25 @@
-* {
+*, ::before, ::after {
     margin: 0;
     box-sizing: border-box;
 }
 body {
     font-family: Helvetica, Arial, sans-serif;
     color: #333;
+    display: flex;
+    flex-direction: column;
 }
 .backgroung{
     max-width: 100%;
     height: auto;
-    position: fixed;
+    position: static;
     top: 0;
     left: 0;
 }
 .navbar {
-    background-color: transparent;
+    background-color: #161719;
     color: #fff;
     width: 100%;
+    border-bottom: 1px solid #AAAAAA;
     height: 80px;
     line-height: 80px;
     font-size: 18px;
@@ -85,26 +88,15 @@ body {
     clear: both;
 }
 .belowNavbar{
-    position: relative;
-    top: 500px;
-}
-.degrade1{
-    backdrop-filter: blur(2px);
-    flex-shrink: 0;
-}
-.degrade2{
-    backdrop-filter: blur(4px);
-    flex-shrink: 0;
-}
-.degrade3{
-    backdrop-filter: blur(6px);
-    flex-shrink: 0;
+    padding-top: 200px;
+    padding-bottom: 600px;
+    flex: 1 0 auto;
 }
 footer {
     flex-shrink: 0;
     width: 100%;
-    backdrop-filter: blur(8px);
-    box-shadow: rgba(0,0,0,.7);
+    border-top: 1px solid #AAAAAA;
+    background: #161719;
     color: #AAA;
 }
 .contenu-footer {
@@ -113,7 +105,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    font-size: 20px;
+    font-size: 18px;
     padding: 50px 0 100px;
 }
 .bloc {
@@ -146,6 +138,24 @@ footer {
 .liste-services a:hover {
     color: #FFA500;
 }
+.liste-media {
+    position: relative;
+    right: 10px;
+}
+.liste-media img {
+    width: 40px;
+    margin: 10px 10px;
+}
+.liste-media a {
+    text-decoration: none;
+    color: #AAA;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+.liste-media a:hover{
+    color: #FFA500;
+}
 
 
 
@@ -153,7 +163,19 @@ footer {
 
 
 
-@media (max-width: 991px) {
+@media (max-width: 1300px) {
+    .contenu-footer {
+        width: 700px;
+        flex-wrap: wrap;
+    }
+    .bloc {
+        width: 40%;
+        margin: 0 0;
+    }
+    .bloc:nth-child(1),
+    .bloc:nth-child(2) {
+        margin-bottom: 50px;
+    }
     .navbar ul {
         padding: 0 10px;
     }
@@ -168,7 +190,21 @@ footer {
 
 
 
-@media (max-width: 767px) {
+@media (max-width: 800px) {
+    .contenu-footer {
+        width: 320px;
+    }
+    .bloc {
+        width: 300px;
+        margin: 30px 30px;
+    }
+    .bloc:nth-child(1),
+    .bloc:nth-child(2) {
+        margin-bottom: 30px;
+    }
+    .bloc:nth-child(1) {
+        margin-top: 0;
+    }
     .column{
         width: 100%;
     }

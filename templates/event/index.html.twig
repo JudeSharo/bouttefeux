@@ -4,10 +4,19 @@
 
 {% block stylesheet %}{% endblock %}
 
-{% block background %}<div class="background" style="background-image:url('{{ asset('images/page-accueil.jpg') }}')"/>{% endblock %}
+{% block background %}<div class="background" style="background-image:url('{{ asset('images/page-accueil.jpg') }}')">{% endblock %}
 
 {% block body %}
 	<div class="row belowNavbar">
+
+	<div class="slider">
+		<div class="slides">
+			<div class="slide"><img src="1.jpg" alt="" /></div>
+			<div class="slide"><img src="2.jpg" alt="" /></div>
+			<div class="slide"><img src="3.jpg" alt="" /></div>
+		</div>
+	</div>
+
 	<div class="column">
 		<h2>Jenini</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
@@ -23,54 +32,4 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
 	</div>
 </div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 {% endblock %}

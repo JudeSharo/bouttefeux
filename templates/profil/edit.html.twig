@@ -3,12 +3,14 @@
 {% block title %}Edit de {{ app.user.getPseudo}} {% endblock %}
 
 {% block body %}
-    <h1>Edit Event</h1>
+    <div class="belowNavbar">
+        <h1>Edit Event</h1>
 
-    {{ include('profil/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ include('profil/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('index') }}">back to list</a>
+        <a href="{{ path('index') }}">back to list</a>
 
-    {{ include('profil/_delete_form.html.twig') }}
+        {{ include('profil/_delete_form.html.twig') }}
+    </div>
 
 {% endblock %}
