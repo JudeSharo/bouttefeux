@@ -109,7 +109,7 @@ class EventController extends AbstractController
         {
             $nom = $image ->getName();
 
-            unlink($this ->getParameter('images_directory').'/'.$nom);
+            unlink($this ->getParameter('image_directory').'/'.$nom);
 
             $em = $this->getDoctrine()->getManager();
             $em->remove($image);

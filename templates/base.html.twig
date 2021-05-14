@@ -9,58 +9,19 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
     {% endblock %}
 </head>
-<<<<<<< HEAD
-<body>  
-{% block javascripts %}
-        {#{{ encore_entry_script_tags('app') }}#}
-{% endblock %}
+
 {% block background %}{% endblock %}
-<nav class="navbar">
-    <a href="{{ path('index') }}" class="navbar-brand"><span>A</span>ccueil</a>
-    <ul>
-        {% if is_granted('ROLE_USER') %}
-            <li class="nav"><a href="{{ path('app_profil') }}" class="active">Profil</a></li>
-        {% else %}
-            <li class="nav"><a href="{{ path('app_login') }}">Se Connecter</a></li>
-            <li class="nav"><a href="{{ path('app_register') }}" class="active">S'Inscrire</a></li>
-        {% endif %}
-    </ul>
-    <button class="navbar-toggler" id="navbar-toggler">
-        <span></span>
-    </button>
-</nav>
-{% block body %}
-=======
-    <body>
->>>>>>> 6bf7d96b33f783d3ea14e78406fe63de9181ce45
 
-    {% block background %}{% endblock %}
+{{ include('includes/navbar.html.twig') }}
 
-<<<<<<< HEAD
 
-<footer >
+{% block body %}{% endblock %}
 
-    <div class="contenu-footer">
+{{ include('includes/footer.html.twig') }}
 
-        <div class="bloc footer-services">
-            <h3>Nos Services</h3>
-            <ul class="liste-services">
-                <li><a href="#">Devis en ligne</a></li>
-                <li><a href="#">Forum</a></li>
-                <li><a href="#">Galerie</a></li>
-            </ul>
-        </div>
-=======
-    {{ include('includes/navbar.html.twig') }}
->>>>>>> 6bf7d96b33f783d3ea14e78406fe63de9181ce45
-
-    {% block body %}{% endblock %}
-
-    {{ include('includes/footer.html.twig') }}
-
-    {% block javascripts %}
-        <script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>
-    {% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>
+{% endblock %}
 
     </body>
 </html>
