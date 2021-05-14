@@ -8,8 +8,46 @@
 
 <div class="belowNavbar">
 
+    <main>
+        <h1>Diaporama</h1>
+
+        <!-- Conteneur principal de tout le diaporama -->
+        <div class="diapo">
+            <!-- Conteneur des "diapos" -->
+            <div class="elements">
+                <!-- Première diapo -->
+                <div class="element active">
+                    <img src="{{ asset('images/slider1.jpeg') }}" alt="Image 1">
+                    <div class="caption">
+                        <h2>Image 1</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+                    </div>
+                </div>
+                <!-- Deuxième diapo -->
+                <div class="element">
+                    <img src="{{ asset('images/slider2.jpeg') }}" alt="Image 2">
+                    <div class="caption">
+                        <h2>Image 2</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+                    </div>
+                </div>
+                <!-- Troisième diapo -->
+                <div class="element">
+                    <img src="{{ asset('images/slider3.jpeg') }}" alt="Image 3">
+                    <div class="caption">
+                        <h2>Image 3</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Flèches de navigation -->
+            <i id="nav-gauche" class="las la-chevron-left"></i>
+            <i id="nav-droite" class="las la-chevron-right"></i>
+        </div>
+    </main>
+
 </div>
-
-<script src="{{ asset('js/slider.js') }}"
-
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
+{% endblock %}
 {% endblock %}

@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <a href="{{ path('index') }}" class="navbar-brand"><span>A</span>ccueil</a>
+    <ul>
+        {% if is_granted('ROLE_USER') %}
+            <li class="nav"><a href="{{ path('app_profil') }}" class="active">Profil</a></li>
+        {% else %}
+            <li class="nav"><a href="{{ path('app_login') }}">Se Connecter</a></li>
+            <li class="nav"><a href="{{ path('app_register') }}" class="active">S'Inscrire</a></li>
+        {% endif %}
+    </ul>
+    <button class="navbar-toggler" id="navbar-toggler">
+        <span></span>
+    </button>
+</nav>

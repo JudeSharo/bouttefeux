@@ -8,101 +8,20 @@
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
     {% endblock %}
-    <style>
-        img .logofb:hover{
-            {% set srclogofb %}
-                {{ asset('images/fb2.png') }}
-            {% endset %}
-        }
-    </style>
 </head>
-<body>
-{% block background %}{% endblock %}
-<nav class="navbar">
-    <a href="{{ path('index') }}" class="navbar-brand"><span>A</span>ccueil</a>
-    <ul>
-        {% if is_granted('ROLE_USER') %}
-            <li class="nav"><a href="{{ path('app_profil') }}" class="active">Profil</a></li>
-        {% else %}
-            <li class="nav"><a href="{{ path('app_login') }}">Se Connecter</a></li>
-            <li class="nav"><a href="{{ path('app_register') }}" class="active">S'Inscrire</a></li>
-        {% endif %}
-    </ul>
-    <button class="navbar-toggler" id="navbar-toggler">
-        <span></span>
-    </button>
-</nav>
-{% block body %}
+    <body>
 
-{% endblock %}
-<!-- footer -->
-<script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>
+    {% block background %}{% endblock %}
+
+    {{ include('includes/navbar.html.twig') }}
+
+    {% block body %}{% endblock %}
+
+    {{ include('includes/footer.html.twig') }}
 
     {% block javascripts %}
-        {#{{ encore_entry_script_tags('app') }}#}
+        <script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>
     {% endblock %}
-<footer >
 
-    <div class="contenu-footer">
-
-        <div class="bloc footer-services">
-            <h3>Nos Services</h3>
-            <ul class="liste-services">
-                <li><a href="#">Devis en ligne</a></li>
-                <li><a href="#">Forum</a></li>
-                <li><a href="#">Galerie</a></li>
-            </ul>
-        </div>
-
-        <div class="bloc footer-contact">
-            <h3>Restons en contact</h3>
-            <p>06 26 50 69 46</p>
-            <p>yohan.bouttefeux@hotmail.fr</p>
-            <p>38 Rue de Momignies, 59186 Anor</p>
-        </div>
-
-        <div class="bloc footer-horaires">
-            <h3>Les horaires</h3>
-            <ul class="liste-horaires">
-                <li>✔️ Lun 10h-19h</li>
-                <li>✔️ Mar 10h-19h</li>
-                <li>✔️ Mer 10h-19h</li>
-                <li>✔️ Jeu 10h-19h</li>
-                <li>✔️ Ven 10h-19h</li>
-                <li>❌ Sam fermé</li>
-                <li>❌ Dim fermé</li>
-            </ul>
-        </div>
-
-        <div class="bloc footer-medias">
-            <h3>Nos réseaux</h3>
-            <ul class="liste-media">
-                <li>
-                    {% set srclogofb %}
-                        {{ asset('images/fb.png') }}
-                    {% endset %}
-
-                    <a href="https://www.facebook.com/Bouttefeux-yohan-321817244628825/" >
-                        <img class="logofb" src="{{ srclogofb }}" alt="Icone Facebook">Facebook/bouttefeux
-                    </a>
-                </li>
-                <!--<li><a href="#">-->
-                        <!--  <img src="medias/instagram.svg" alt="icones réseaux sociaux">-->
-                <!--  Instagram/stuff</a></li>-->
-                <!--  <li><a href="#">-->
-                        <!--  <img src="medias/twitter.svg" alt="icones réseaux sociaux">-->
-                <!--     Twitter/lorem</a></li>-->
-                <!--  <li><a href="#">-->
-                        <!--   <img src="medias/github.svg" alt="icones réseaux sociaux">-->
-                <!--     Github/HelloWorld</a></li>-->
-                <!--  <li><a href="#">-->
-                        <!--   <img src="medias/youtube.svg" alt="icones réseaux sociaux">-->
-                <!-- Youtube/channel</a></li> -->
-            </ul>
-        </div>
-
-    </div>
-
-</footer>
-</body>
+    </body>
 </html>

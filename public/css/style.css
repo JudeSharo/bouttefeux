@@ -1,5 +1,6 @@
 *, ::before, ::after {
     box-sizing: border-box;
+    margin: 0;
 }
 body {
     font-family: Helvetica, Arial, sans-serif;
@@ -12,9 +13,8 @@ main{
     margin: auto;
 }
 .backgroung{
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    position: static;
     top: 0;
     left: 0;
 }
@@ -23,7 +23,7 @@ main{
     color: #fff;
     width: 100%;
     border-bottom: 1px solid #AAAAAA;
-    height: 80px;
+    height: 100px;
     line-height: 80px;
     font-size: 18px;
     position: fixed;
@@ -37,6 +37,7 @@ main{
     color: #fff;
 }
 .navbar a.navbar-brand {
+    margin: 10px auto;
     float: left;
     height: inherit;
     line-height: inherit;
@@ -52,10 +53,9 @@ main{
 }
 .navbar ul {
     float: right;
-    list-style: none;
     height: inherit;
     line-height: inherit;
-    padding: 0 10px;
+    list-style: none;
 }
 .navbar ul.nav{
     top: 0;
@@ -65,9 +65,11 @@ main{
 }
 .navbar ul li a {
     display: block;
+    margin: 10px 10px;
+    vertical-align: middle;
     text-align: center;
     min-width: 120px;
-    padding: 0 30px;
+    border-radius: 10px;
 }
 .navbar ul li a:hover {
     background-color: rgba(255,255,255,0.15);
@@ -272,7 +274,60 @@ footer {
     margin: 0 30px;
     padding: 100px 0 0 0;
     line-height: 1.5;
+}main{
+     width: 80%;
+     margin: auto;
+ }
+
+.diapo{
+    position: relative;
+    overflow: hidden;
 }
+
+#nav-droite{
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: '';
+    display: inline-block;position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    font-size: 3em;
+    vertical-align: top;
+    width: 0.45em;
+    color: #FFA500;
+}
+
+#nav-droite{
+    right: 20px;
+}
+#nav-gauche{
+    left: 20px;
+}
+
+.elements{
+    display: flex;
+    transition: 1s linear;
+}
+
+.element{
+    flex: 1 0 100%;
+    position: relative;
+}
+
+.element > img{
+    width: 100%;
+}
+
+.caption{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(255,255,255,0.4);
+    padding: 30px;
+}
+
 
 
 
@@ -291,9 +346,6 @@ footer {
     .bloc:nth-child(1),
     .bloc:nth-child(2) {
         margin-bottom: 50px;
-    }
-    .navbar ul {
-        padding: 0 10px;
     }
     .navbar ul li a {
         min-width: 100px;
@@ -339,7 +391,6 @@ footer {
     }
     .navbar ul li {
         width: 100%;
-        /* border-bottom: 1px solid rgba(255,255,255,0.3); */
     }
     .navbar ul li a {
         padding: 0;
