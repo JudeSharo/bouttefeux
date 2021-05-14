@@ -1,0 +1,114 @@
+.slidergrid3 {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    margin: 0px auto;
+    border-radius: 10px;
+}
+.slidesgrid3 {
+    width: calc(500px*3);
+    animation: glisse3 10s infinite;
+    border-radius: 10px;
+}
+.slidegrid3 {
+    float: left;
+    border-radius: 10px;
+}
+
+@keyframes glisse3 {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(0);
+    }
+    33% {
+        transform: translateX(-500px);
+    }
+    58% {
+        transform: translateX(-500px);
+    }
+    66% {
+        transform: translateX(-1000px);
+    }
+    92% {
+        transform: translateX(-1000px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.slidergrid2 {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    margin: 0px auto;
+    border-radius: 10px;
+}
+.slidesgrid2 {
+    width: calc(500px*3);
+    animation: glisse2 7s infinite;
+    border-radius: 10px;
+}
+.slidegrid2 {
+    border-radius: 10px;
+    float: left;
+}
+
+@keyframes glisse2 {
+    0% {
+        transform: translateX(0);
+    }
+    40% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-500px);
+    }
+    90% {
+        transform: translateX(-500px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.containerGrid{
+    max-width: 16000px;
+    margin: 0 auto;
+}
+.grid{
+    padding: 0;
+    list-style: none;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+.grid:after{
+    clear: both;
+}
+.grid li{
+    width: 500px;
+    height: 500px;
+    display: inline-block;
+    margin: 20px;
+}
+.gridBox{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    -webkit-transition: 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out, -moz-transform 0.3s ease-in-out;
+    transition: 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.gridBox:hover{
+    transform: scale(1.05);
+}
+.gridBox h3{
+    color: #AAAAAA;
+    font-size: 42px;
+    margin: 0 30px;
+    padding: 100px 0 0 0;
+    line-height: 1.5;
+}

@@ -23,17 +23,20 @@ window.onload = () => {
     next.addEventListener("click", slideNext)
     prev.addEventListener("click", slidePrev)
 
-    // Automatiser le diaporama
-    timer = setInterval(slideNext, 4000)
-
     // Gérer le survol de la souris
-    //diapo.addEventListener("mouseover", stopTimer)
-    //diapo.addEventListener("mouseout", startTimer)
+    diapo.addEventListener("mouseover", stopTimer)
+    diapo.addEventListener("mouseout", startTimer)
 
     // Mise en oeuvre du "responsive"
     window.addEventListener("resize", () => {
         slideWidth = diapo.getBoundingClientRect().width
         slideNext()
+    })
+
+    elements.addEventListener("transitionend", () => {
+        if (elements[compteur].id === "clone") {
+            elements.style.transition = "none";
+        }
     })
 }
 
@@ -82,5 +85,5 @@ function stopTimer(){
  * On redémarre le défilement
  */
 function startTimer(){
-    timer = setInterval(slideNext, 4000)
+    timer = setInterval(slideNext, 5000)
 }

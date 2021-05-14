@@ -11,13 +11,13 @@
 </head>
     <body>
 
-    {% block background %}{% endblock %}
+    <div class="background" style="background-image:url('{{ asset('images/page-accueil.jpg') }}')">
 
     {{ include('includes/navbar.html.twig') }}
-
-    {% block body %}{% endblock %}
-
+      {% block body %}
+      {% endblock %}
     {{ include('includes/footer.html.twig') }}
+
 
     {% block javascripts %}
         <script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>

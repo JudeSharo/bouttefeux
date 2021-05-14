@@ -2,9 +2,10 @@
 
 {% block title %}Accueil{% endblock %}
 
-{% block stylesheet %}{% endblock %}
-
-{% block background %}<div class="background" style="background-image:url('{{ asset('images/page-accueil.jpg') }}')">{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/event.css') }}"/>
+    {{ parent() }}
+{% endblock %}
 
 {% block body %}
 	<div class="belowNavbar">

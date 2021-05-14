@@ -2,52 +2,61 @@
 
 {% block title %}Accueil{% endblock %}
 
-{% block background %}<div class="background" style="background-image:url('{{ asset('images/page-accueil.jpg') }}')">{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}"/>
+    {{ parent() }}
+{% endblock %}
 
 {% block body %}
 
-<div class="belowNavbar">
+    <div class="belowNavbar">
 
-    <main>
-        <h1>Diaporama</h1>
-
-        <!-- Conteneur principal de tout le diaporama -->
-        <div class="diapo">
-            <!-- Conteneur des "diapos" -->
-            <div class="elements">
-                <!-- Première diapo -->
-                <div class="element active">
-                    <img src="{{ asset('images/slider1.jpeg') }}" alt="Image 1">
-                    <div class="caption">
-                        <h2>Image 1</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+        <main>
+            <!-- Conteneur principal de tout le diaporama -->
+            <div class="diapo">
+                <!-- Conteneur des "diapos" -->
+                <div class="elements">
+                    <!-- Première diapo -->
+                    <div class="element active">
+                        <img src="{{ asset('images/slider1.jpeg') }}" alt="Image 1">
+                        <div class="caption">
+                            <h2>Image 1</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+                        </div>
+                    </div>
+                    <!-- Deuxième diapo -->
+                    <div class="element">
+                        <img src="{{ asset('images/slider2.jpeg') }}" alt="Image 2">
+                        <div class="caption">
+                            <h2>Image 2</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+                        </div>
+                    </div>
+                    <!-- Troisième diapo -->
+                    <div class="element">
+                        <img src="{{ asset('images/slider3.jpeg') }}" alt="Image 3">
+                        <div class="caption">
+                            <h2>Image 3</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+                        </div>
+                    </div>
+                    <!-- Diapo pour former un circuit -->
+                    <div class="clone element">
+                        <img src="{{ asset('images/slider1.jpeg') }}" alt="Image 1">
+                        <div class="caption">
+                            <h2>Image 1</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Deuxième diapo -->
-                <div class="element">
-                    <img src="{{ asset('images/slider2.jpeg') }}" alt="Image 2">
-                    <div class="caption">
-                        <h2>Image 2</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
-                    </div>
-                </div>
-                <!-- Troisième diapo -->
-                <div class="element">
-                    <img src="{{ asset('images/slider3.jpeg') }}" alt="Image 3">
-                    <div class="caption">
-                        <h2>Image 3</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
-                    </div>
-                </div>
+                <!-- Flèches de navigation -->
+                <i id="nav-gauche" class="chevron gauche"></i>
+                <i id="nav-droite" class="chevron droite"></i>
             </div>
-            <!-- Flèches de navigation -->
-            <i id="nav-gauche" class="las la-chevron-left"></i>
-            <i id="nav-droite" class="las la-chevron-right"></i>
-        </div>
-    </main>
+        </main>
 
-</div>
-{% block javascripts %}
-<script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
-{% endblock %}
+    </div>
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
+    {% endblock %}
 {% endblock %}
