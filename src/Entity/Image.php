@@ -23,7 +23,7 @@ class Image
     private $src;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Event::class, inversedBy="Image")
+     * @ORM\ManyToOne(targetEntity=Event::class, inversedBy="image")
      */
     private $event;
 

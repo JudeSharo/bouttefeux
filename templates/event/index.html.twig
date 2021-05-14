@@ -7,29 +7,40 @@
 {% block background %}<div class="background" style="background-image:url('{{ asset('images/page-accueil.jpg') }}')">{% endblock %}
 
 {% block body %}
-	<div class="row belowNavbar">
+	<div class="belowNavbar">
+		<table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>DateEvent</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events%}
+            <tr>
+                <td>{{ event.id }}</td>
+                <td>{{ event.title }}</td>
+                <td>{{ event.description }}</td>
+                <td>{{ event.datetime ? event.datetime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>    
+    				{% for image in event.image%}
+    					<div>
+    						<img src="{{asset('/images/upload/'~image.src)}}">
+    					</div>
+    				{% endfor %}
+    			</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-	<div class="slider">
-		<div class="slides">
-			<div class="slide"><img src="1.jpg" alt="" /></div>
-			<div class="slide"><img src="2.jpg" alt="" /></div>
-			<div class="slide"><img src="3.jpg" alt="" /></div>
-		</div>
 	</div>
-
-	<div class="column">
-		<h2>Jenini</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-	</div>
-
-	<div class="column">
-		<h2>Pogo</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-	</div>
-
-	<div class="column">
-		<h2>Fantine</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-	</div>
-</div>
 {% endblock %}

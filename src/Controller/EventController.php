@@ -3,19 +3,22 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\Image;
 use App\Form\EventType;
+use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class EventController extends AbstractController
 {
     #[Route('/event/index', name: 'app_event_index')]
-    public function index(): Response
+    public function index(EventRepository $eventRepository): Response
     {
         return $this->render('event/index.html.twig', [
-            'controller_name' => 'EventController',
+            'events' => $eventRepository->findAll(),
         ]);
     }
 
@@ -27,11 +30,27 @@ class EventController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $images = $form -> get('images')->getData();
             $entityManager = $this->getDoctrine()->getManager();
+            foreach($images as $image)
+            {
+                $fichier = md5(uniqid()).'.'.$image->guessExtension();
+                $image -> move(
+                    $this->getParameter('image_directory'),
+                    $fichier
+                );
+
+                $img = new Image();
+                $img -> setSrc($fichier);
+                $event ->addImage($img);
+                $entityManager->persist($img);
+            }
+            
             $entityManager->persist($event);
             $entityManager->flush();
 
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('app_event_index');
         }
 
         return $this->render('event/new.html.twig', [

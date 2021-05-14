@@ -22,26 +22,26 @@ class Event
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Title;
+    private $title;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Description;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="event")
-     */
-    private $Image;
+    private $description;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $Datetime;
+    private $datetime;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="event")
+     */
+    private $image;
 
     public function __construct()
     {
-        $this->Image = new ArrayCollection();
+        $this->image = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -51,24 +51,36 @@ class Event
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(string $Title): self
+    public function setTitle(string $title): self
     {
-        $this->Title = $Title;
+        $this->title = $title;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): self
+    public function setDescription(string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDatetime(): ?\DateTimeInterface
+    {
+        return $this->datetime;
+    }
+
+    public function setDatetime(\DateTimeInterface $datetime): self
+    {
+        $this->datetime = $datetime;
 
         return $this;
     }
@@ -78,13 +90,13 @@ class Event
      */
     public function getImage(): Collection
     {
-        return $this->Image;
+        return $this->image;
     }
 
     public function addImage(Image $image): self
     {
-        if (!$this->Image->contains($image)) {
-            $this->Image[] = $image;
+        if (!$this->image->contains($image)) {
+            $this->image[] = $image;
             $image->setEvent($this);
         }
 
@@ -93,24 +105,12 @@ class Event
 
     public function removeImage(Image $image): self
     {
-        if ($this->Image->removeElement($image)) {
+        if ($this->image->removeElement($image)) {
             // set the owning side to null (unless already changed)
             if ($image->getEvent() === $this) {
                 $image->setEvent(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getDatetime(): ?\DateTimeInterface
-    {
-        return $this->Datetime;
-    }
-
-    public function setDatetime(\DateTimeInterface $Datetime): self
-    {
-        $this->Datetime = $Datetime;
 
         return $this;
     }
