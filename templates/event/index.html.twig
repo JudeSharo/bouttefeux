@@ -7,40 +7,56 @@
 {% block background %}<div class="background" style="background-image:url('{{ asset('images/page-accueil.jpg') }}')">{% endblock %}
 
 {% block body %}
-	<div class="belowNavbar">
-		<table class="tableauEvent">
-        <thead>
-            <tr>
-                <th class="colonneTableauEvent">Id</th>
-                <th class="colonneTableauEvent">Title</th>
-                <th class="colonneTableauEvent">Description</th>
-                <th class="colonneTableauEvent">DateEvent</th>
-                <th class="colonneTableauEvent">Image</th>
-                <th class="colonneTableauEvent">actions</th>
-            </tr>
-        </thead>
-        <tbody class="">
-        {% for event in events%}
-            <tr class="">
-                <td class="colonneTableauEvent">{{ event.id }}</td>
-                <td class="colonneTableauEvent">{{ event.title }}</td>
-                <td class="colonneTableauEvent">{{ event.description }}</td>
-                <td class="colonneTableauEvent">{{ event.datetime ? event.datetime|date('Y-m-d H:i:s') : '' }}</td>
-                <td class="colonneTableauEvent">
-    				{% for image in event.image%}
-    					<div>
-    						<img src="{{asset('/images/uploads/'~image.src)}}" height="150px">
-    					</div>
-    				{% endfor %}
-    			</td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
+	<div class="belowNavbar">
+	    <div class="containerGrid">
+	        <ul class="grid">
+                {% for event in events%}
+                    <style>
+                        .grid:after, .gridBox:before{
+                            content: "{{ event.title }}";
+                            display: table;
+                        })
+                    </style>
+                    <li>
+                        <div class="gridBox">
+                            {% if event.image|length == 3 %}
+                                <div class="slidergrid3">
+                                    <div class="slidesgrid3">
+                                        {% for image in event.image %}
+                                            <div class="slidegrid3">
+                                                <img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px">
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if event.image|length == 2 %}
+                                <div class="slidergrid2">
+                                    <div class="slidesgrid2">
+                                        {% for image in event.image %}
+                                            <div class="slidegrid2">
+                                                <img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px">
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if event.image|length == 1 %}
+                                {% for image in event.image %}
+                                    <div class="slidegrid1">
+                                        <img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px">
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </li>
+                {% else %}
+                    <li>
+                        <p>no records found</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
 	</div>
 {% endblock %}
