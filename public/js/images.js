@@ -18,14 +18,21 @@ window.onload = () => {
                     "X-Requested-With": "XMLHttpRequest",
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({"_token":this.dataset.token})}).then(
+                body: JSON.stringify({"token":this.dataset.token})}).then(
                     // On récupère la réponse en JSON
                     response => response.json()
                 ).then(data => {
                     if(data.success)
-                        this.parentElement.remove()
+                    {
+                        this.parentElement.remove();
+                        window.location.reload();
+                    }
                     else
-                        alert(data.error)
+                    {
+                        alert(data.error);
+                        window.location.reload();
+
+                    }
                 }).catch(e => alert(e))
             }
         })

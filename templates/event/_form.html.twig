@@ -7,6 +7,7 @@
     		<div>
     			<img src="{{asset('images/uploads/'~image.src)}}">
 				<a href="{{ path('app_event_image_delete', {id: image.id})}}" data-delete data-token="{{csrf_token('delete' ~ image.id)}}">Supprimer</a>
+          
     		</div>
     	{% endfor %}
     {% endif %}

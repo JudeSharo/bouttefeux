@@ -105,7 +105,7 @@ class EventController extends AbstractController
     {
         $data = json_decode($request->getContent(),true);
 
-        if($this -> isCsrfTokenValid('delete'.$image->getId(),$data['_token']))
+        if($this -> isCsrfTokenValid('delete'.$image->getId(),$data['token']))
         {
             $nom = $image ->getSrc();
 
