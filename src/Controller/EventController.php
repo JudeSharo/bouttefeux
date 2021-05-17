@@ -37,8 +37,9 @@ class EventController extends AbstractController
 
             $images = $form -> get('images')->getData();
             $entityManager = $this->getDoctrine()->getManager();
-            foreach($images as $image)
+            for($i = 0;$i<3;$i++)
             {
+                $image = $images[$i];
                 $fichier = md5(uniqid()).'.'.$image->guessExtension();
                 $image -> move(
                     $this->getParameter('image_directory'),
