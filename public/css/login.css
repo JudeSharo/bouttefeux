@@ -40,8 +40,18 @@
     height: 35px;
 }
 .login .submitlogin button{
+    width: 100%;
     background-color: #FFA500;
     color: #FFFFFF;
-    border-radius: 3px;
+    margin-top: 30px;
+    border-radius: 5px;
+    border: transparent;
+    font-size: 20px;
     padding: 10px;
+}
+hr{
+    margin: 20px;
+}
+.login a{
+    color: #FFA500;
 }
