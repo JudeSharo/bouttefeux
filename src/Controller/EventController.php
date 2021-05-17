@@ -7,6 +7,7 @@ use App\Entity\Image;
 use App\Form\EventType;
 use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\isCsrfTokenValid;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,9 +26,12 @@ class EventController extends AbstractController
     #[Route('/event/new',name:'app_event_new')]
     public function new(Request $request):Response
     {
-    	$event = new Event();
+    	$this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $event = new Event();
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
+
+
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -61,6 +65,7 @@ class EventController extends AbstractController
      #[Route('/event/{id}/edit',name:'app_event_edit')]
     public function edit(Request $request,Event $event)
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
 
@@ -103,6 +108,7 @@ class EventController extends AbstractController
     #[Route('/event/image/{id}/delete',name:'app_event_image_delete',methods:['DELETE'])]
     public function deleteImage(Image $image, Request $request)
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $data = json_decode($request->getContent(),true);
 
         if($this -> isCsrfTokenValid('delete'.$image->getId(),$data['token']))
@@ -123,5 +129,30 @@ class EventController extends AbstractController
             return new JsonResponse(['error'=>'Token invalide'],400);
         }
     }
+    #[Route('/event/{id}/delete',name:'app_event_delete',methods:['POST'])]
+    public function deleteEvent(Event $event)
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
+            $images= $event ->getImage();  
+            if($images)
+            {
+                foreach($images as $image)
+                {
+                    $nom = $image ->getSrc();
+                    $nomImage= $this ->getParameter('image_directory').'/'.$nom;
+                    if(file_exists($nomImage))
+                    {
+                        unlink($nomImage);
+                        $em = $this->getDoctrine()->getManager();
+                        $em->remove($image);
+                        $em->flush();
+                    }
+                }
+            }
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($event);
+            $em->flush();
+        return $this->redirectToRoute('index');
+    }
 }

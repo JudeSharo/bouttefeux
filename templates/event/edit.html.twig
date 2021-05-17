@@ -4,13 +4,14 @@
 
 
 {% block body %}
-	<div class="belowNavbar">
-    	<h1>Changement de {{event.title}}</h1>
-     	{{ include('event/_form.html.twig', {'button_label': 'changement'})}}
-
-    	<a href="{{ path('app_event_index')}}">back to list</a>
-	</div>
-
+	{% if is_granted('ROLE_ADMIN')%}
+		<div class="belowNavbar">
+    		<h1>Changement de {{event.title}}</h1>
+     		{{ include('event/_form.html.twig', {'button_label': 'changement'})}}
+     		{{ include('event/_delete_form.html.twig', {'button_label': 'Supprimer le chantier'})}}
+    		<a href="{{ path('app_event_index')}}">back to list</a>
+		</div>
+	{% endif %}
 {% endblock %}
 
 

@@ -4,12 +4,13 @@
 
 
 {% block body %}
-<div class="belowNavbar">
-    <h1>Create new Event</h1>
-     {{ include('event/_form.html.twig', {'button_label': 'create'})}}
+	{% if is_granted('ROLE_ADMIN') %}
+		<div class="belowNavbar">
+    		<h1>Create new Event</h1>
+     		{{ include('event/_form.html.twig', {'button_label': 'create'})}}
 
-    <a href="{{ path('app_event_index')}}">back to list</a>
-</div>
-
+    		<a href="{{ path('app_event_index')}}">back to list</a>
+		</div>
+	{% endif%}
 {% endblock %}
 
