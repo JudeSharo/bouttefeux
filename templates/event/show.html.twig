@@ -1,21 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ event.title}}{% endblock %}
+{% block title %}{{ event.title}}{% endblock %}
 
-{% block body %} 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/event.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/slider.css') }}"/>
+    {{ parent() }}
+{% endblock %}
 
-	{{ event.title }}
-	{% for image in event.image %}
-        <div class="slidegrid2">
-            <img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px">
+{% block body %}
+    <div class="belowNavbar">
+        <div class="article">
+            <h1>{{ event.title }}</h1>
+            <h2>Le {{ event.datetime? event.datetime|date('d-m-Y') : '' }} à {{ event.datetime? event.datetime|date('H:i') : '' }}</h2>
+            <p>{{ event.description }}</p>
+            <div class="diapo">
+                <div class="elements">
+
+                    {% for image in event.image|slice(0,1) %}
+                        <div class="element active">
+                            <img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px">
+                        </div>
+                    {% endfor %}
+
+                    {% for image in event.image[1:] %}
+                        <div class="element">
+                            <img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px">
+                        </div>
+                    {% endfor %}
+                </div>
+                <i id="nav-gauche" class="chevron gauche"></i>
+                <i id="nav-droite" class="chevron droite"></i>
+            </div>
+
+
+
         </div>
-   {% endfor %}
-   {{ event.description }}
-   {{ event.datetime? event.datetime|date('Y-m-d H:i:s') : '' }}
 
-   {% if is_granted('ROLE_ADMIN')%}
-   		<a href="{{path('app_event_edit',{'id':event.id})}}">Editer l'evenement</a>
-   {% endif %}
-   
+       {% if is_granted('ROLE_ADMIN')%}
+            <a href="{{path('app_event_edit',{'id':event.id})}}">Editer l'evenement</a>
+       {% endif %}
 
+    </div>
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
+    {% endblock %}
 {% endblock %}

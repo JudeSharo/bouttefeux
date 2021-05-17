@@ -1,0 +1,27 @@
+.login{
+    width: 30%;
+    margin: 200px auto;
+    text-align: center;
+    background-color: #333333;
+    color: #AAAAAA;
+    border-radius: 10px;
+    padding: 50px;
+    border: 2px solid #000000;
+}
+.login .titrelogin{
+    padding-bottom: 30px;
+}
+.login .emaillogin,
+.login .passwordlogin{
+    background-color: #E7E7E6;
+    text-align: left;
+    margin-bottom: 15px;
+    padding: 8px;
+}
+.login .emaillogin input,
+.login .passwordlogin input{
+    width: 80%;
+    margin: auto;
+    border: transparent;
+    b
+}
