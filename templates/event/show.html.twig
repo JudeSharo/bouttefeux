@@ -13,8 +13,9 @@
    {{ event.description }}
    {{ event.datetime? event.datetime|date('Y-m-d H:i:s') : '' }}
 
-   <a href="{{path('app_event_edit',{'id':event.id})}}">Editer l'evenement</a>
-
-
+   {% if is_granted('ROLE_ADMIN')%}
+   		<a href="{{path('app_event_edit',{'id':event.id})}}">Editer l'evenement</a>
+   {% endif %}
+   
 
 {% endblock %}

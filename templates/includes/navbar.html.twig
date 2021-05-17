@@ -7,6 +7,9 @@
             <li class="nav"><a href="{{ path('app_login') }}">Se Connecter</a></li>
             <li class="nav"><a href="{{ path('app_register') }}" class="active">S'Inscrire</a></li>
         {% endif %}
+        {% if is_granted('ROLE_ADMIN')%}
+            <li class="nav"><a href="{{path('app_event_new')}}">Ajouter un chantier</a></li>
+        {% endif%}
     </ul>
     <button class="navbar-toggler" id="navbar-toggler">
         <span></span>
