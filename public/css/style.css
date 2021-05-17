@@ -19,10 +19,10 @@ main{
     left: 0;
 }
 .navbar {
-    background-color: #161719;
+    background-color: #777;
     color: #fff;
     width: 100%;
-    border-bottom: 1px solid #AAAAAA;
+    border-bottom: 1px solid #222;
     height: 100px;
     line-height: 80px;
     font-size: 18px;
@@ -100,8 +100,8 @@ main{
 footer {
     flex-shrink: 0;
     width: 100%;
-    border-top: 1px solid #AAAAAA;
-    background: #161719;
+    border-top: 1px solid #222;
+    background: #777;
     color: #AAA;
 }
 .contenu-footer {
