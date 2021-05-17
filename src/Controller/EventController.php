@@ -50,7 +50,7 @@ class EventController extends AbstractController
                 $event ->addImage($img);
                 $entityManager->persist($img);
             }
-            
+            $event->setDatetime(new \Datetime('@'.strtotime('now')));
             $entityManager->persist($event);
             $entityManager->flush();
 
@@ -156,3 +156,4 @@ class EventController extends AbstractController
         return $this->redirectToRoute('index');
     }
 }
+ 
