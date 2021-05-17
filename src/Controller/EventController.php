@@ -37,19 +37,38 @@ class EventController extends AbstractController
 
             $images = $form -> get('images')->getData();
             $entityManager = $this->getDoctrine()->getManager();
-            for($i = 0;$i<3;$i++)
+            if(count($images)>3)
             {
-                $image = $images[$i];
-                $fichier = md5(uniqid()).'.'.$image->guessExtension();
-                $image -> move(
-                    $this->getParameter('image_directory'),
-                    $fichier
-                );
+                for($i = 0;$i<3;$i++)
+                {
+                    $image = $images[$i];
+                    $fichier = md5(uniqid()).'.'.$image->guessExtension();
+                    $image -> move(
+                        $this->getParameter('image_directory'),
+                        $fichier
+                    );
 
-                $img = new Image();
-                $img -> setSrc($fichier);
-                $event ->addImage($img);
-                $entityManager->persist($img);
+                    $img = new Image();
+                    $img -> setSrc($fichier);
+                    $event ->addImage($img);
+                    $entityManager->persist($img);
+                }
+            }
+            else
+            {
+                foreach($images as $image)
+                {
+                    $fichier = md5(uniqid()).'.'.$image->guessExtension();
+                    $image -> move(
+                        $this->getParameter('image_directory'),
+                        $fichier
+                    );
+
+                    $img = new Image();
+                    $img -> setSrc($fichier);
+                    $event ->addImage($img);
+                    $entityManager->persist($img);
+                }
             }
             $event->setDatetime(new \Datetime('@'.strtotime('now')));
             $entityManager->persist($event);
