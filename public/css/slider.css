@@ -65,8 +65,6 @@ main{
     color: #FFFFFF;
 }
 
-
-
 @media (max-width: 1200px) {
     .caption{
         font-size: 12px;
