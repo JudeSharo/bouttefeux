@@ -17,11 +17,41 @@
     text-align: left;
     margin-bottom: 15px;
     padding: 8px;
+    border-radius: 2px;
+
+}
+.login .emaillogin label,
+.login .passwordlogin label{
+    alignment: left;
+    font-size: 24px;
+    padding: 30px 10px 7px 10px;
+    filter: grayscale(1);
+}
+.login .passwordlogin label{
+    opacity: 0.4;
 }
 .login .emaillogin input,
 .login .passwordlogin input{
-    width: 80%;
+    alignment: right;
+    width: 70%;
     margin: auto;
+    background-color: #E7E7E6;
     border: transparent;
-    b
+    height: 35px;
+}
+.login .submitlogin button{
+    width: 100%;
+    background-color: #FFA500;
+    color: #FFFFFF;
+    margin-top: 30px;
+    border-radius: 5px;
+    border: transparent;
+    font-size: 20px;
+    padding: 10px;
+}
+hr{
+    margin: 20px;
+}
+.login a{
+    color: #FFA500;
 }

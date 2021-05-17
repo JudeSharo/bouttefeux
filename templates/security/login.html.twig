@@ -18,17 +18,23 @@
             <h1>Se Connecter</h1>
         </div>
         <div class="emaillogin">
-            <label for="inputEmail"></label>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+            <label for="inputEmail">✉</label>
+            <input type="email" name="email" id="inputEmail" class="form-control" autocomplete="email" required>
         </div>
         <div class="passwordlogin">
-            <label for="inputPassword"></label>
+            <label for="inputPassword">🔑</label>
             <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
         </div>
         <div class="submitlogin">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-            <button type="submit">Sign in</button>
+            <button type="submit">Se Connecter</button>
         </div>
+        <hr>
+        <div class="signup">
+            Pas encore inscrit ?
+            <a href="{{ path('app_register') }}">S'inscrire</a>
+        </div>
+
     </div>
 
 
