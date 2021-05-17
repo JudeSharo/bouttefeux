@@ -54,6 +54,49 @@
     border-radius: 10px;
     float: left;
 }
+.vueTitreGrid {
+    width: 500px;
+    height: 500px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+}
+.vueTitreGrid .mask, .vueTitreGrid .content {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0
+}
+.vueTitreGrid img {
+    display: block;
+    position: relative
+}
+.vueTitreGrid h2 {
+    color: #FFA500;
+    text-align: center;
+    position: relative;
+    font-size: 42px;
+    padding: 130px;
+    background: rgba(0, 0, 0, 0);
+    margin: 20px 0 0 0
+}
+.vueTitreGrid a {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    padding: 7px 14px;
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    box-shadow: 0 0 1px #000
+}
+.vueTitreGrid a:hover {
+    box-shadow: 0 0 5px #000
+}
 
 @keyframes glisse2 {
     0% {
@@ -105,10 +148,32 @@
 .gridBox:hover{
     transform: scale(1.05);
 }
-.gridBox h3{
-    color: #AAAAAA;
-    font-size: 42px;
-    margin: 0 30px;
-    padding: 100px 0 0 0;
-    line-height: 1.5;
+.titreGrid img {
+    transition: all 0.2s linear;
+}
+.titreGrid .mask {
+    opacity: 0;
+    background-color: rgba(48,48,48, 0.7);
+    transition: all 0.4s ease-in-out;
+}
+.titreGrid h2 {
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+.titreGrid a{
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+.titreGrid:hover .mask {
+    opacity: 1;
+}
+.titreGrid:hover h2{
+    opacity: 1;
+    transform: translateY(0px);
+}
+.titreGrid:hover a{
+    opacity: 1;
+    transform: translateY(-100px);
+    transition-delay: 0.2s;
 }

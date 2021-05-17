@@ -12,22 +12,22 @@
 	    <div class="containerGrid">
 	        <ul class="grid">
                 {% for event in events%}
-                    <style>
-                        .grid:after, .gridBox:before{
-                            content: "{{ event.title }}";
-                            display: table;
-                        }
-                    </style>
                     <li>
                         <div class="gridBox">
+
                             {% if event.image|length == 3 %}
                                 <div class="slidergrid3">
                                     <div class="slidesgrid3">
                                         {% for image in event.image %}
-                                            <div class="slidegrid3">
-                                               <a href="{{path('app_event_show',{'id':event.id})}}"> <img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px" ></a>
+                                            <div class="slidegrid3 ">
+                                                <img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px"  alt="">
+                                                <div class="mask">
+                                                    <h2>{{ event.title }}</h2>
+                                                </div>
+                                                <a href="{{path('app_event_show',{'id':event.id})}}"></a>
                                             </div>
                                         {% endfor %}
+                                        <h3>{{ event.title }}</h3>
                                     </div>
                                 </div>
                             {% endif %}
@@ -35,8 +35,12 @@
                                 <div class="slidergrid2">
                                     <div class="slidesgrid2">
                                         {% for image in event.image %}
-                                            <div class="slidegrid2">
-                                                <a href="{{path('app_event_show',{'id':event.id})}}"><img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px"></a>
+                                            <div class="slidegrid2 vueTitreGrid titreGrid">
+                                                <img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px"  alt="">
+                                                <div class="mask">
+                                                    <h2>{{ event.title }}</h2>
+                                                </div>
+                                                <a href="{{path('app_event_show',{'id':event.id})}}">Voir</a>
                                             </div>
                                         {% endfor %}
                                     </div>
@@ -48,6 +52,7 @@
                                         <a href="{{path('app_event_show',{'id':event.id})}}"><img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px"></a>
                                     </div>
                                 {% endfor %}
+                                <h3>{{ event.title }}</h3>
                             {% endif %}
                         </div>
                     </li>
@@ -59,4 +64,7 @@
             </ul>
         </div>
 	</div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/event.js') }}"></script>
 {% endblock %}
