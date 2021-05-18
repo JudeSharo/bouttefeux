@@ -2,22 +2,31 @@
 
 {% block title %}Profil{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/profil.css') }}"/>
+    {{ parent() }}
+{% endblock %}
+
 {% block body %}
 	<div class="belowNavbar">
-		<p>Coucou c'est le profil</p>
-
-		{% if is_granted('ROLE_USER') %}
-			<h1>Bonjour {{app.user.pseudo}} {{app.user.nom}} !</h1>
-			<p>Vous habitez au {{app.user.adresse}}</p>
-			<p>Votre numéro de téléphone est le {{app.user.getphoneNumber}}</p>
-
-			<a href="{{path('app_user_edit',{'id':app.user.id})}}">modifier votre profil</a>
-
-
-		{% endif %}
-
-
-		<a href="{{path('app_logout')}}">Deconnexion</a>
+		<div class ="profil">
+			{% if is_granted('ROLE_USER') %}
+				<div class="titreprofil">
+					<h1>Bonjour {{app.user.pseudo}} {{app.user.nom}} !</h1><br>
+				</div>
+				<div class="adresseprofil">
+					<p>Vous habitez au {{app.user.adresse}}</p><br>
+				</div>
+				<div class="numeroprofil">
+					<p>Votre numéro de téléphone est le {{app.user.getphoneNumber}}</p><br>
+				</div>
+				<div class="modifierprofil">
+					<a href="{{path('app_user_edit',{'id':app.user.id})}}">Modifier votre profil</a> <br>
+				</div>
+				<div class="deconnexionprofil">
+					<a href="{{path('app_logout')}}">Deconnexion</a><br>
+				</div>
+			{% endif %}
+		</div>
 	</div>
-
 {% endblock %}
