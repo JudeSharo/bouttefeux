@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -17,12 +18,14 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('pseudo',null,array('label'=>'prenom',))
-            ->add('nom')
-            ->add('email')
-            ->add('adresse')
-            ->add('phone_number')
+            ->add('pseudo',null,array('label'=>'Prenom',))
+            ->add('nom',null, array('label'=>'Nom'))
+            ->add('email',null, array('label'=>'Mail'))
+            ->add('adresse',null, array('label'=>'Adresse'))
+            ->add('phone_number',null, array('label'=>'N° Tel'))
+            ->add('submit',SubmitType::class, array('label'=>"S'inscrire"))
             ->add('agreeTerms', CheckboxType::class, [
+                'label'=>"J'accepte la collecte de mes informations ",
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([

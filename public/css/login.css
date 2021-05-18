@@ -1,5 +1,6 @@
-.login{
-    width: 30%;
+.login,
+.register{
+    width: 40%;
     margin: 200px auto;
     text-align: center;
     background-color: #333333;
@@ -8,17 +9,35 @@
     padding: 50px;
     border: 2px solid #000000;
 }
-.login .titrelogin{
+.login .titrelogin,
+.register .titreregister{
     padding-bottom: 30px;
 }
 .login .emaillogin,
-.login .passwordlogin{
+.login .passwordlogin,
+.register .pseudoregister,
+.register .nomregister,
+.register .emailregister,
+.register .adresseregister,
+.register .phoneregister,
+.register .passwordregister{
     background-color: #E7E7E6;
     text-align: left;
     margin-bottom: 15px;
     padding: 8px;
     border-radius: 2px;
 
+}
+.register .pseudoregister,
+.register .nomregister,
+.register .emailregister,
+.register .adresseregister,
+.register .phoneregister,
+.register .passwordregister{
+    alignment: left;
+    font-size: 18px;
+    padding: 10px 10px 7px 10px;
+    filter: grayscale(1);
 }
 .login .emaillogin label,
 .login .passwordlogin label{
@@ -31,15 +50,24 @@
     opacity: 0.4;
 }
 .login .emaillogin input,
-.login .passwordlogin input{
+.login .passwordlogin input,
+.register .pseudoregister input,
+.register .nomregister input,
+.register .emailregister input,
+.register .adresseregister input,
+.register .phoneregister input,
+.register .passwordregister input{
     alignment: right;
     width: 70%;
     margin: auto;
+    padding-left: 20px;
     background-color: #E7E7E6;
     border: transparent;
     height: 35px;
+    font-size: 16px;
 }
-.login .submitlogin button{
+.login .submitlogin button,
+.register .submitregister button{
     width: 100%;
     background-color: #FFA500;
     color: #FFFFFF;
@@ -52,6 +80,7 @@
 hr{
     margin: 20px;
 }
-.login a{
+.login a,
+.register a{
     color: #FFA500;
 }
