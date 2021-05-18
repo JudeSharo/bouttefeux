@@ -93,8 +93,8 @@ main{
     clear: both;
 }
 .belowNavbar{
-    margin-top: 200px;
-    margin-bottom: 200px;
+    margin-top: 90px;
+    margin-bottom: 80px;
     flex: 1 0 auto;
 }
 footer {
