@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Articles{% endblock %}
+{% block title %}Yohan Bouttefeux {% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/slider.css') }}"/>
@@ -10,39 +10,18 @@
 {% block body %}
 
     <div class="belowNavbar">
-
         <main>
+            <h1> Bienvenue sur le site de Yohan Bouttefeux ! </h1>
             <!-- Conteneur principal de tout le diaporama -->
-            <div class="diapo">
-                <!-- Conteneur des "diapos" -->
-                <div class="elements">
-                    <!-- Première diapo -->
-                    <div class="element active">
-                        <img src="{{ asset('images/slider1.jpeg') }}" alt="Image 1">
-                        <a href="">
-                            <div class="caption">
-                                <h2>Devis en ligne Gratuit</h2>
-                                <p>Cliquez ici pour avoir une simulation de devis !</p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Deuxième diapo -->
-                    <div class="element">
-                        <img src="{{ asset('images/slider2.jpeg') }}" alt="Image 2">
-                        <a href="{{ path('app_event_index') }}">
-                            <div class="caption">
-                                <h2>Mes Chantiers</h2>
-                                <p>Cliquez ici pour avoir un aperçu de mes chantiers !</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- Flèches de navigation -->
-                <i id="nav-gauche" class="chevron gauche"></i>
-                <i id="nav-droite" class="chevron droite"></i>
-            </div>
-        </main>
+            {{ include('home/diapo.html.twig')}} 
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt purus ligula, quis molestie metus rhoncus vel. Vivamus gravida nunc et lorem tincidunt, nec varius ex euismod. Pellentesque efficitur vitae massa eu mollis. Cras aliquam et odio rhoncus mollis. Ut tristique magna ac nulla faucibus aliquam. Donec luctus consectetur ex at ullamcorper. Sed id ultricies odio, a placerat tortor. Maecenas felis lectus, aliquet et congue iaculis, pellentesque sed enim. Nullam sem augue, mollis et nisl nec, efficitur ullamcorper orci. Vestibulum maximus, dolor quis elementum elementum, sem quam posuere felis, non placerat diam metus eget purus. Nam in ante hendrerit, laoreet ipsum at, mollis justo. Donec orci neque, cursus ut mollis at, pharetra id orci.
 
+Quisque viverra neque elit, nec imperdiet turpis tincidunt id. Etiam quis gravida mi. Etiam eget leo sem. Suspendisse vehicula eros euismod ex bibendum efficitur. Integer sit amet tempus libero, non vestibulum diam. Vivamus eros nunc, fermentum vitae erat ut, interdum efficitur orci. Morbi pretium magna ligula, gravida consequat tellus ornare viverra.
+
+Ut fermentum turpis ut ex varius, a viverra massa condimentum. Aliquam auctor, lorem nec finibus commodo, urna erat imperdiet nibh, quis feugiat mauris dui ac velit. Nam sed tempus dui. Sed commodo enim vel mi varius elementum. Etiam vel lectus nec quam aliquam suscipit sit amet lobortis nibh. Integer aliquam lectus in risus tempor laoreet. Mauris ac ipsum non felis sollicitudin consequat. Curabitur ornare ut quam vitae vulputate. Sed sodales tincidunt metus ut sagittis. Integer volutpat dui sed justo aliquam gravida.
+
+Maecenas bibendum, magna id ornare vehicula, sem sem tristique erat, condimentum ornare enim nunc nec velit. Aenean finibus quis diam eu dapibus. Sed mattis nunc consectetur euismod vulputate. Fusce ullamcorper, justo eget semper molestie, mauris libero dignissim quam, sed bibendum urna lacus id orci. Pellentesque tincidunt odio ac feugiat eleifend. Integer facilisis tellus lacinia.</p>       
+        </main>
     </div>
     {% block javascripts %}
         <script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
