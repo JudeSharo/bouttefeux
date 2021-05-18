@@ -94,7 +94,7 @@ main{
 }
 .belowNavbar{
     margin-top: 200px;
-    margin-bottom: 600px;
+    margin-bottom: 200px;
     flex: 1 0 auto;
 }
 footer {
@@ -111,7 +111,7 @@ footer {
     justify-content: center;
     align-items: flex-start;
     font-size: 18px;
-    padding: 50px 0 100px;
+    padding: 50px 0 50px;
 }
 .bloc {
     width: 25%;

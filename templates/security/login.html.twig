@@ -25,6 +25,11 @@
             <label for="inputPassword">🔑</label>
             <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
         </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="_remember_me"> Se souvenir de moi
+            </label>
+        </div>
         <div class="submitlogin">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             <button type="submit">Se Connecter</button>
@@ -36,13 +41,6 @@
         </div>
 
     </div>
-
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" name="_remember_me"> Remember me
-        </label>
-    </div>
-    
 
 </form>
 {% endblock %}
