@@ -4,6 +4,11 @@
 
 {% block body %}
 	<div class="belowNavbar">
-		<p>667 ekip ekip ekip ekip ekip ekip ekip ekip SCUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUT</p>
+		{% for user in user %}
+			<p>{{app.user.pseudo}}</p>
+			<p>{{app.user.nom}}</p>
+			<p>{{app.user.adresse}}</p>
+		{% endfor %}
+		}
 	</div>
 {% endblock %}
