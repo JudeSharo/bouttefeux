@@ -2,7 +2,7 @@
     width: 100%;
 }
 .parallax {
-    background-image: url("../images/banniere.jpg");
+    background-image: url("../images/banniere2.jpg");
     height: 600px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -24,7 +24,7 @@
     background-size: 100%;
     z-index: -1;
 }
-@media only screen and (max-device-width: 1366px) {
+@media only screen and (max-device-width: 800px) {
     .parallax {
         background-attachment: scroll;
     }
