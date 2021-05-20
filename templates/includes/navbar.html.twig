@@ -9,6 +9,7 @@
         {% endif %}
         {% if is_granted('ROLE_ADMIN')%}
             <li class="nav"><a href="{{path('app_event_new')}}">Ajouter un chantier</a></li>
+            <li class="nav"><a href="{{path("app_admin_index")}}">Administrer</a></li>
         {% endif%}
     </ul>
     <button class="navbar-toggler" id="navbar-toggler">
