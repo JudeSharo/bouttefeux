@@ -12,11 +12,9 @@
         
     <div class="belowNavbar">
 
+        <div class="parallax"></div>
 
-        <main>
-            <div class="banniere">
-                <img src="{{ asset('images/banniere2.jpg') }}">
-            </div>
+        <main class="">
             <hr>
             <h1> Bienvenue sur le site de Yohan Bouttefeux ! </h1>
             <!-- Conteneur principal de tout le diaporama -->
@@ -32,5 +30,6 @@ Maecenas bibendum, magna id ornare vehicula, sem sem tristique erat, condimentum
     </div>
     {% block javascripts %}
         <script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
+        {{ parent()  }}
     {% endblock %}
 {% endblock %}

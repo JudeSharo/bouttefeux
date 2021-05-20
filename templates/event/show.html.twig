@@ -44,5 +44,6 @@
     </div>
     {% block javascripts %}
         <script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
+        {{ parent() }}
     {% endblock %}
 {% endblock %}
