@@ -1,14 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %} Administration {% endblock %}
 
 {% block body %}
 	<div class="belowNavbar">
-		{% for user in user %}
-			<p>{{app.user.pseudo}}</p>
-			<p>{{app.user.nom}}</p>
-			<p>{{app.user.adresse}}</p>
-		{% endfor %}
-		}
+		<table>
+			
+				{% for user in user %}
+					<tr>
+						<td><p>{{app.user.pseudo}}</p></td>					
+						<td><p>{{app.user.nom}}</p></td>
+						<td><p>{{app.user.adresse}}</p></td>
+						<td><p>{{app.user.getPhoneNumber()}}</p></td>
+						<td><p>{{app.user.email}}</p></td>
+					</tr>	
+				{% endfor %}
+			
+		</table>
+		
+			
 	</div>
 {% endblock %}
