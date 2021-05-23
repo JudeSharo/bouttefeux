@@ -94,8 +94,9 @@ main{
 }
 .belowNavbar{
     margin-top: 90px;
-    margin-bottom: 80px;
-    flex: 1 0 auto;
+}
+.contenu{
+    min-height: 900px;
 }
 footer {
     flex-shrink: 0;
