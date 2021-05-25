@@ -5,19 +5,17 @@
 {% block body %}
 	<div class="belowNavbar">
 		<table>
-			
-				{% for user in user %}
-					<tr>
-						<td><p>{{app.user.pseudo}}</p></td>					
-						<td><p>{{app.user.nom}}</p></td>
-						<td><p>{{app.user.adresse}}</p></td>
-						<td><p>{{app.user.getPhoneNumber()}}</p></td>
-						<td><p>{{app.user.email}}</p></td>
-					</tr>	
-				{% endfor %}
-			
-		</table>
-		
-			
+			{% for user in users %}
+				<tr>
+					<td><p>{{user.id}}</p></td>
+					<td><p>{{user.pseudo}}</p></td>					
+					<td><p>{{user.nom}}</p></td>
+					<td><p>{{user.adresse}}</p></td>
+					<td><p>{{user.getPhoneNumber()}}</p></td>
+					<td><p>{{user.email}}</p></td>
+					<td>{{include('admin/_delete_form.html.twig',{'button:label':'Supprimer l\'utilisateur'})}}</td>
+				</tr>	
+			{% endfor %}	
+		</table>		
 	</div>
 {% endblock %}
