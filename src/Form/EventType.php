@@ -15,13 +15,34 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title',null,['attr'=>['autofocus'=>'true']])
-            ->add('description',TextareaType::class,['attr'=>['rows'=>'10','cols'=>'30']])
+            ->add('title',null,[
+                'attr'=>[
+                    'autofocus'=>'true',
+                    'class'=>'titreevent'
+                ],
+                'label'=>'Titre',
+                'label_attr'=>[
+                    'class'=>'titrelabelevent'
+                ]
+            ])
+            ->add('description',TextareaType::class,[
+                'attr'=>[
+                    'rows'=>'10',
+                    'cols'=>'30',
+                    'class'=>'descriptionevent'
+                ],
+                'label_attr'=>[
+                    'class'=>'descriptionlabelevent'
+                ]
+            ])
             ->add('images',FileType::class,[
                 'label' => false,
                 'multiple' => true,
                 'mapped' => false,
-                'required' => false
+                'required' => false,
+                'attr'=>[
+                    'class'=>'imageevent'
+                ]
             ])
         ;
     }
