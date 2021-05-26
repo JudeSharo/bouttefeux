@@ -2,14 +2,20 @@
 
 {% block title %} changement de {{ event.id}}{% endblock %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/profil.css') }}"/>
+	{{ parent() }}
+{% endblock %}
 
 {% block body %}
 	{% if is_granted('ROLE_ADMIN')%}
 		<div class="belowNavbar">
-    		<h1>Changement de {{event.title}}</h1>
-     		{{ include('event/_form.html.twig', {'button_label': 'changement'})}}
-     		{{ include('event/_delete_form.html.twig', {'button_label': 'Supprimer le chantier'})}}
-    		<a href="{{ path('app_event_index')}}">back to list</a>
+			<div class="event">
+				<h1>Changement de {{event.title}}</h1>
+				{{ include('event/_form.html.twig', {'button_label': 'changement'})}}
+				{{ include('event/_delete_form.html.twig', {'button_label': 'Supprimer le chantier'})}}
+				<a href="{{ path('app_event_index')}}">back to list</a>
+			</div>
 		</div>
 	{% endif %}
 {% endblock %}
@@ -17,5 +23,6 @@
 
 {% block javascripts %}
 	<script type="text/javascript" src="{{asset('js/images.js')}}"></script>
+	<script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
 	{{ parent() }}
 {% endblock %}

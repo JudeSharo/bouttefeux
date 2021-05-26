@@ -1,15 +1,31 @@
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/slider.css') }}"/>
+{% endblock %}
+
 {{ form_start(form) }}
     {{ form_widget(form) }}
 
     {% if app.request.attributes.get('_route') == 'app_event_edit' %}
-    	<h2>Images</h2>
-    	{% for image in event.image%}
-    		<div>
-    			<img src="{{asset('images/uploads/'~image.src)}}">
-				<a href="{{ path('app_event_image_delete', {id: image.id})}}" data-delete data-token="{{csrf_token('delete' ~ image.id)}}">Supprimer</a>
-          
-    		</div>
-    	{% endfor %}
+		<div class="diapo">
+			<div class="elements">
+
+				{% for image in event.image|slice(0,1) %}
+					<div class="element active">
+						<img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px">
+						<a href="{{ path('app_event_image_delete', {id: image.id})}}" data-delete data-token="{{csrf_token('delete' ~ image.id)}}">Supprimer
+					</div>
+				{% endfor %}
+
+				{% for image in event.image[1:] %}
+					<div class="element">
+						<img src="{{asset('images/uploads/'~image.src)}}" height="500px" width="500px">
+						<a href="{{ path('app_event_image_delete', {id: image.id})}}" data-delete data-token="{{csrf_token('delete' ~ image.id)}}">Supprimer
+					</div>
+				{% endfor %}
+			</div>
+			<i id="nav-gauche" class="chevron gauche"></i>
+			<i id="nav-droite" class="chevron droite"></i>
+		</div>
     {% endif %}
     <button class="btn">{{ button_label|default('Save') }}</button>
     
