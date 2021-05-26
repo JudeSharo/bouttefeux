@@ -2,14 +2,20 @@
 
 {% block title %} New Event ! {% endblock %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/profil.css') }}"/>
+	{{ parent() }}
+{% endblock %}
 
 {% block body %}
 	{% if is_granted('ROLE_ADMIN') %}
 		<div class="belowNavbar">
-    		<h1>Create new Event</h1>
-     		{{ include('event/_form.html.twig', {'button_label': 'create'})}}
-
-    		<a href="{{ path('app_event_index')}}">back to list</a>
+			<div class="event">
+				<h1>Create new Event</h1>
+				{{ include('event/_form.html.twig', {'button_label': 'Créer'})}}
+				<hr>
+				<a href="{{ path('app_event_index')}}">Retour à la liste</a>
+			</div>
 		</div>
 	{% endif%}
 {% endblock %}
