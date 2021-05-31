@@ -2,8 +2,16 @@
 
 {% block title %} Administration {% endblock %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
+	{{ parent() }}
+{% endblock %}
+
 {% block body %}
 	<div class="belowNavbar">
+		<h1>
+			Liste des utilisateurs
+		</h1>
 		<table>
 			{% for user in users %}
 				<tr>

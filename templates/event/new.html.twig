@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} New Event ! {% endblock %}
+{% block title %} Nouveau chantier ! {% endblock %}
 
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset('css/profil.css') }}"/>
@@ -11,7 +11,7 @@
 	{% if is_granted('ROLE_ADMIN') %}
 		<div class="belowNavbar">
 			<div class="event">
-				<h1>Create new Event</h1>
+				<h1>Ajouter un chantier</h1>
 				{{ include('event/_form.html.twig', {'button_label': 'Créer'})}}
 				<hr>
 				<a href="{{ path('app_event_index')}}">Retour à la liste</a>

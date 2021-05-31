@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} changement de {{ event.id}}{% endblock %}
+{% block title %} Changement de {{ event.title}}{% endblock %}
 
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset('css/profil.css') }}"/>
@@ -22,7 +22,7 @@
 
 
 {% block javascripts %}
+	<script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>x
 	<script type="text/javascript" src="{{asset('js/images.js')}}"></script>
-	<script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
 	{{ parent() }}
 {% endblock %}
