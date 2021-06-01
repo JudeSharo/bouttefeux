@@ -2,8 +2,19 @@
 
 {% block title %}Devis gratuit{% endblock %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/devis.css') }}"/>
+	{{ parent() }}
+{% endblock %}
+
 {% block body %}
 	<div class="belowNavbar">
-		<h1>Debut du devis 667</h1>
+		<div class="devis">
+			<h1>Debut du devis 667</h1>
+			<p>
+
+			</p>
+			<button></button>
+		</div>
 	</div>
 {% endblock %}

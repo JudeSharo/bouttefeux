@@ -30,7 +30,6 @@
 
 .event .titreevent{
     alignment: right;
-    width: 70%;
     margin: 0 0 20px;
     padding-left: 20px;
     border: transparent;
@@ -38,7 +37,6 @@
     font-size: 16px;
 }
 .event .descriptionevent{
-    width: 70%;
     margin: auto;
     padding-left: 20px;
     border: transparent;
@@ -46,7 +44,6 @@
     font-size: 16px;
 }
 .event .imageevent{
-    width: 70%;
     margin: auto;
     padding-left: 150px;
     border: transparent;
@@ -54,8 +51,9 @@
     font-size: 16px;
 }
 .event .titrelabelevent{
-    alignment: left;
+    justify-self: start;
     font-size: 24px;
+    margin-left: 0;
     padding: 30px 10px 7px 10px;
     filter: grayscale(1);
 }

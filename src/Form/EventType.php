@@ -20,7 +20,7 @@ class EventType extends AbstractType
                     'autofocus'=>'true',
                     'class'=>'titreevent'
                 ],
-                'label'=>'Titre',
+                'label'=>"Titre",
                 'label_attr'=>[
                     'class'=>'titrelabelevent'
                 ]
@@ -31,6 +31,7 @@ class EventType extends AbstractType
                     'cols'=>'30',
                     'class'=>'descriptionevent'
                 ],
+                'label'=>"Description",
                 'label_attr'=>[
                     'class'=>'descriptionlabelevent'
                 ]

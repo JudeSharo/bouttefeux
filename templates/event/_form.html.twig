@@ -3,7 +3,10 @@
 {% endblock %}
 
 {{ form_start(form) }}
+
     {{ form_widget(form) }}
+
+	{{ event.description|nl2br }}
 
     {% if app.request.attributes.get('_route') == 'app_event_edit' %}
 		<div class="diapo">
