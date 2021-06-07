@@ -1,4 +1,3 @@
-// Variables globales
 let compteur = 0 // Compteur qui permettra de savoir sur quelle slide nous sommes
 let timer, elements, slides, slideWidth
 
@@ -31,12 +30,6 @@ window.onload = () => {
     window.addEventListener("resize", () => {
         slideWidth = diapo.getBoundingClientRect().width
         slideNext()
-    })
-
-    elements.addEventListener("transitionend", () => {
-        if (elements[compteur].id === "clone") {
-            elements.style.transition = "none";
-        }
     })
 }
 
