@@ -10,11 +10,18 @@
 {% block body %}
 	<div class="belowNavbar">
 		<div class="devis">
-			<h1>Debut du devis 667</h1>
-			<p>
-
-			</p>
-			<button></button>
+			<h1 id="titre"></h1>
+			<p id="description"></p>
+			<div id="divers"></div>
+			<button id="bouton"></button>
 		</div>
 	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script type="text/javascript" src="{{ asset('js/devis.js') }}"></script>
+	<script async
+    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv55CqF9LPZjgNoJCErd_uEHG0hGiLe5o&libraries=geometry&callback=initMap">
+	</script>
+	{{ parent() }}
 {% endblock %}
